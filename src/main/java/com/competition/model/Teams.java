@@ -11,6 +11,7 @@ public class Teams {
     private String teamname;
     private String teammember1;
     private String teammember2;
+    private String password;
 
     public Teams() {
 
@@ -54,5 +55,13 @@ public class Teams {
 
     public void setTeammember2(String teammember2) {
         this.teammember2 = teammember2;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
