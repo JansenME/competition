@@ -1,6 +1,13 @@
 package com.competition.model;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Teammember {
+    private Long id;
     private String firstName;
     private String tussenvoegsel;
     private String lastName;
@@ -15,6 +22,16 @@ public class Teammember {
         this.tussenvoegsel = tussenvoegsel;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
