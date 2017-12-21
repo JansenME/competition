@@ -1,6 +1,9 @@
 package com.competition.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Matches {
@@ -20,6 +23,8 @@ public class Matches {
         this.awayGoals = awayGoals;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
         return id;
     }
