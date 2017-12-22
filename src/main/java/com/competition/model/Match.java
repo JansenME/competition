@@ -28,8 +28,7 @@ public class Match {
         this.teams = teams;
     }
 
-    public Match(final List<Team> teams, final Long homeGoals, final Long awayGoals) {
-        this.teams = teams;
+    public void setScore(final Long homeGoals, final Long awayGoals) {
         this.homeGoals = homeGoals;
         this.awayGoals = awayGoals;
     }

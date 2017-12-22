@@ -37,6 +37,14 @@ public class Teammember {
         this.email = email;
     }
 
+    public String fullName() {
+        if (EMPTY_STRING.equals(this.tussenvoegsel)) {
+            return this.firstName + " " + this.lastName;
+        } else {
+            return this.firstName + " " + this.tussenvoegsel + " " + this.lastName;
+        }
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getTeamMemberId() {
@@ -85,13 +93,5 @@ public class Teammember {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String fullName() {
-        if (EMPTY_STRING.equals(this.tussenvoegsel)) {
-            return this.firstName + " " + this.lastName;
-        } else {
-            return this.firstName + " " + this.tussenvoegsel + " " + this.lastName;
-        }
     }
 }
