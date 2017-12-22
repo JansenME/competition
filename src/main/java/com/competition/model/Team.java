@@ -1,10 +1,15 @@
 package com.competition.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Entity
 public class Team {
@@ -14,20 +19,17 @@ public class Team {
     private String teamname;
 
     @NotNull
-    private Teammember teammember1;
+    private List<Teammember> teammembers;
 
-    @NotNull
-    private Teammember teammember2;
     private String password;
 
     public Team() {
 
     }
 
-    public Team(final String teamname, final Teammember teammember1, final Teammember teammember2) {
+    public Team(final String teamname, final List<Teammember> teammembers) {
         this.teamname = teamname;
-        this.teammember1 = teammember1;
-        this.teammember2 = teammember2;
+        this.teammembers = teammembers;
     }
 
     @Id
@@ -36,23 +38,37 @@ public class Team {
         return teamId;
     }
 
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
+    }
+
     public String getTeamname() {
         return teamname;
     }
 
-    public Teammember getTeammember1() {
-        return teammember1;
+    public void setTeamname(String teamname) {
+        this.teamname = teamname;
     }
 
-    public Teammember getTeammember2() {
-        return teammember2;
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "team_teammember",
+            joinColumns = @JoinColumn(name = "team_id"),
+            inverseJoinColumns = @JoinColumn(name = "team_member_id")
+    )
+    public List<Teammember> getTeammembers() {
+        return teammembers;
+    }
+
+    public void setTeammembers(List<Teammember> teammembers) {
+        this.teammembers = teammembers;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(final String password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }
