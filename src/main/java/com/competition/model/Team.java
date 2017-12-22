@@ -4,20 +4,32 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class Teams {
-    private Long id;
+public class Team {
+    @OneToMany
+    private Long teamId;
+
+    @NotNull
     private String teamname;
-    private Teammember teammember1;
-    private Teammember teammember2;
+
+    @NotNull
+    @ManyToOne
+    private Long teammember1;
+
+    @NotNull
+    @ManyToOne
+    private Long teammember2;
     private String password;
 
-    public Teams() {
+    public Team() {
 
     }
 
-    public Teams(String teamname, Teammember teammember1, Teammember teammember2) {
+    public Team(String teamname, Long teammember1, Long teammember2) {
         this.teamname = teamname;
         this.teammember1 = teammember1;
         this.teammember2 = teammember2;
@@ -25,12 +37,12 @@ public class Teams {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
+    public Long getTeamId() {
+        return teamId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTeamId(Long teamId) {
+        this.teamId = teamId;
     }
 
     public String getTeamname() {
@@ -41,19 +53,19 @@ public class Teams {
         this.teamname = teamname;
     }
 
-    public Teammember getTeammember1() {
+    public Long getTeammember1() {
         return teammember1;
     }
 
-    public void setTeammember1(Teammember teammember1) {
+    public void setTeammember1(Long teammember1) {
         this.teammember1 = teammember1;
     }
 
-    public Teammember getTeammember2() {
+    public Long getTeammember2() {
         return teammember2;
     }
 
-    public void setTeammember2(Teammember teammember2) {
+    public void setTeammember2(Long teammember2) {
         this.teammember2 = teammember2;
     }
 

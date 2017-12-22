@@ -4,12 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Teammember {
-    private Long id;
+    @OneToMany
+    private Long teamMemberId;
+
+    @NotNull
     private String firstName;
     private String tussenvoegsel;
+
+    @NotNull
     private String lastName;
     private String phoneNumber;
 
@@ -26,12 +33,12 @@ public class Teammember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
+    public Long getTeamMemberId() {
+        return teamMemberId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setTeamMemberId(Long teamMemberId) {
+        this.teamMemberId = teamMemberId;
     }
 
     public String getFirstName() {
@@ -64,5 +71,18 @@ public class Teammember {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        String name;
+
+        if (tussenvoegsel == null) {
+            name = this.firstName + " " + this.lastName;
+        } else {
+            name = this.firstName + " " + this.tussenvoegsel + " " + this.lastName;
+        }
+
+        return name;
     }
 }

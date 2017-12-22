@@ -4,19 +4,31 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 
 @Entity
-public class Matches {
-    private Long id;
+public class Match {
+    private Long matchId;
+
+    @NotNull
+    @ManyToOne
     private Long homeTeam;
+
+    @NotNull
+    @ManyToOne
     private Long awayTeam;
+
+    @NotNull
     private Long homeGoals;
+
+    @NotNull
     private Long awayGoals;
 
-    public Matches() {
+    public Match() {
     }
 
-    public Matches(Long homeTeam, Long awayTeam, Long homeGoals, Long awayGoals) {
+    public Match(Long homeTeam, Long awayTeam, Long homeGoals, Long awayGoals) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeGoals = homeGoals;
@@ -25,12 +37,12 @@ public class Matches {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getId() {
-        return id;
+    public Long getMatchId() {
+        return matchId;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setMatchId(Long matchId) {
+        this.matchId = matchId;
     }
 
     public Long getHomeTeam() {
