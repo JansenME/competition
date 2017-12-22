@@ -13,11 +13,11 @@ public class Match {
 
     @NotNull
     @ManyToOne
-    private Long homeTeam;
+    private Team homeTeam;
 
     @NotNull
     @ManyToOne
-    private Long awayTeam;
+    private Team awayTeam;
 
     @NotNull
     private Long homeGoals;
@@ -28,7 +28,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(Long homeTeam, Long awayTeam, Long homeGoals, Long awayGoals) {
+    public Match(Team homeTeam, Team awayTeam, Long homeGoals, Long awayGoals) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeGoals = homeGoals;
@@ -41,39 +41,19 @@ public class Match {
         return matchId;
     }
 
-    public void setMatchId(Long matchId) {
-        this.matchId = matchId;
-    }
-
-    public Long getHomeTeam() {
+    public Team getHomeTeam() {
         return homeTeam;
     }
 
-    public void setHomeTeam(Long homeTeam) {
-        this.homeTeam = homeTeam;
-    }
-
-    public Long getAwayTeam() {
+    public Team getAwayTeam() {
         return awayTeam;
-    }
-
-    public void setAwayTeam(Long awayTeam) {
-        this.awayTeam = awayTeam;
     }
 
     public Long getHomeGoals() {
         return homeGoals;
     }
 
-    public void setHomeGoals(Long homeGoals) {
-        this.homeGoals = homeGoals;
-    }
-
     public Long getAwayGoals() {
         return awayGoals;
-    }
-
-    public void setAwayGoals(Long awayGoals) {
-        this.awayGoals = awayGoals;
     }
 }
