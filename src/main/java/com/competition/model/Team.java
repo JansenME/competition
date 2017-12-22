@@ -19,7 +19,7 @@ public class Team {
     private String teamname;
 
     @NotNull
-    private List<Teammember> teammembers;
+    private List<Teammember> teamMembers;
 
     private String password;
 
@@ -27,9 +27,9 @@ public class Team {
 
     }
 
-    public Team(final String teamname, final List<Teammember> teammembers) {
+    public Team(final String teamname, final List<Teammember> teamMembers) {
         this.teamname = teamname;
-        this.teammembers = teammembers;
+        this.teamMembers = teamMembers;
     }
 
     @Id
@@ -56,12 +56,12 @@ public class Team {
             joinColumns = @JoinColumn(name = "team_id"),
             inverseJoinColumns = @JoinColumn(name = "team_member_id")
     )
-    public List<Teammember> getTeammembers() {
-        return teammembers;
+    public List<Teammember> getTeamMembers() {
+        return teamMembers;
     }
 
-    public void setTeammembers(List<Teammember> teammembers) {
-        this.teammembers = teammembers;
+    public void setTeamMembers(List<Teammember> teamMembers) {
+        this.teamMembers = teamMembers;
     }
 
     public String getPassword() {

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-public class Match {
+public class Matches {
     private Long matchId;
 
     @NotNull
@@ -21,10 +21,10 @@ public class Match {
     private Long homeGoals;
     private Long awayGoals;
 
-    public Match() {
+    public Matches() {
     }
 
-    public Match(List<Team> teams) {
+    public Matches(List<Team> teams) {
         this.teams = teams;
     }
 

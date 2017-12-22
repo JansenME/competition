@@ -9,13 +9,12 @@
 	<packaging>war</packaging>
 
 	<name>competition-rabobank</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Competition system, used for Table Soccer tournament Rabobank</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.9.RELEASE</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<version>1.5.4.RELEASE</version>
 	</parent>
 
 	<properties>
@@ -54,6 +53,11 @@
 			<artifactId>spring-restdocs-mockmvc</artifactId>
 			<scope>test</scope>
 		</dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
 	</dependencies>
 
 	<build>
