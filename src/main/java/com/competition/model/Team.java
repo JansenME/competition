@@ -4,24 +4,19 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Team {
-    @OneToMany
     private Long teamId;
 
     @NotNull
     private String teamname;
 
     @NotNull
-    @ManyToOne
     private Teammember teammember1;
 
     @NotNull
-    @ManyToOne
     private Teammember teammember2;
     private String password;
 
@@ -29,7 +24,7 @@ public class Team {
 
     }
 
-    public Team(String teamname, Teammember teammember1, Teammember teammember2) {
+    public Team(final String teamname, final Teammember teammember1, final Teammember teammember2) {
         this.teamname = teamname;
         this.teammember1 = teammember1;
         this.teammember2 = teammember2;
@@ -57,7 +52,7 @@ public class Team {
         return password;
     }
 
-    public void setPassword(String password) {
+    public void setPassword(final String password) {
         this.password = password;
     }
 }

@@ -4,7 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -12,11 +11,9 @@ public class Match {
     private Long matchId;
 
     @NotNull
-    @ManyToOne
     private Team homeTeam;
 
     @NotNull
-    @ManyToOne
     private Team awayTeam;
 
     @NotNull
@@ -28,7 +25,7 @@ public class Match {
     public Match() {
     }
 
-    public Match(Team homeTeam, Team awayTeam, Long homeGoals, Long awayGoals) {
+    public Match(final Team homeTeam, final Team awayTeam, final Long homeGoals, final Long awayGoals) {
         this.homeTeam = homeTeam;
         this.awayTeam = awayTeam;
         this.homeGoals = homeGoals;

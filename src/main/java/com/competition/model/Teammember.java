@@ -4,12 +4,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
 @Entity
 public class Teammember {
-    @OneToMany
+    private static final String EMPTY_STRING = "";
+
     private Long teamMemberId;
 
     @NotNull
@@ -25,10 +25,10 @@ public class Teammember {
 
     }
 
-    public Teammember(String firstName, String tussenvoegsel, String lastName, String phoneNumber, String email) {
+    public Teammember(final String firstName, final String tussenvoegsel, final String lastName, final String phoneNumber, final String email) {
         this.firstName = firstName;
         if (tussenvoegsel == null) {
-            this.tussenvoegsel = "";
+            this.tussenvoegsel = EMPTY_STRING;
         } else {
             this.tussenvoegsel = tussenvoegsel;
         }
@@ -64,7 +64,7 @@ public class Teammember {
     }
 
     public String getFullName() {
-        if ("".equals(this.tussenvoegsel)) {
+        if (EMPTY_STRING.equals(this.tussenvoegsel)) {
             return this.firstName + " " + this.lastName;
         } else {
             return this.firstName + " " + this.tussenvoegsel + " " + this.lastName;
