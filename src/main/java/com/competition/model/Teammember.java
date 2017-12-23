@@ -27,14 +27,27 @@ public class Teammember {
 
     public Teammember(final String firstName, final String tussenvoegsel, final String lastName, final String phoneNumber, final String email) {
         this.firstName = firstName;
+
         if (tussenvoegsel == null) {
             this.tussenvoegsel = EMPTY_STRING;
         } else {
             this.tussenvoegsel = tussenvoegsel;
         }
+
         this.lastName = lastName;
-        this.phoneNumber = phoneNumber;
-        this.email = email;
+
+
+        if (phoneNumber == null) {
+            this.phoneNumber = EMPTY_STRING;
+        } else {
+            this.phoneNumber = phoneNumber;
+        }
+
+        if (email == null) {
+            this.email = EMPTY_STRING;
+        } else {
+            this.email = email;
+        }
     }
 
     public String fullName() {
