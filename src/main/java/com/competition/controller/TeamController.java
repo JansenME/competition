@@ -1,7 +1,9 @@
 package com.competition.controller;
 
+import com.competition.mapper.TeamMapper;
 import com.competition.model.Team;
 import com.competition.response.TeamListResponse;
+import com.competition.response.TeamResponse;
 import com.competition.service.TeamService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,13 +16,16 @@ import java.util.List;
 @RequestMapping("/teams")
 public class TeamController {
     private TeamService teamService = new TeamService();
+    private TeamMapper teamMapper = new TeamMapper();
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public Response getTeams() {
         try {
             List<Team> teams = teamService.getTeams();
 
-            TeamListResponse teamResponse = new TeamListResponse(teams);
+            List<TeamResponse> teamResponses = teamMapper.createTeamResponseList(teams);
+
+            TeamListResponse teamResponse = new TeamListResponse(teamResponses);
 
             return Response.ok(teamResponse).build();
         } catch (Exception e) {

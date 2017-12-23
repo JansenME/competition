@@ -12,7 +12,7 @@ public class TeamResponse {
     @NotNull
     private List<Teammember> teamMembers;
 
-    TeamResponse(Team team) {
+    public TeamResponse(Team team) {
         this.teamname = team.getTeamname();
         this.teamMembers = team.getTeamMembers();
     }
