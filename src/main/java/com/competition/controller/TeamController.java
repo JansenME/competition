@@ -13,12 +13,11 @@ import javax.ws.rs.core.Response;
 import java.util.List;
 
 @RestController
-@RequestMapping("/teams")
 public class TeamController {
     private TeamService teamService = new TeamService();
     private TeamMapper teamMapper = new TeamMapper();
 
-    @RequestMapping(value = "/", method = RequestMethod.GET)
+    @RequestMapping(value = "/teams", method = RequestMethod.GET)
     public Response getTeams() {
         try {
             List<Team> teams = teamService.getTeams();
@@ -31,10 +30,5 @@ public class TeamController {
         } catch (Exception e) {
            return teamService.handleException(e);
         }
-    }
-
-    @RequestMapping(value = "/", method = RequestMethod.PUT)
-    public Response addTeam() {
-        return Response.status(200).entity("Henk").build();
     }
 }
