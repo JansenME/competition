@@ -29,7 +29,7 @@ public class TeamMemberService {
     }
 
     public Response handleException(Exception e) {
-        LOG.error("There was an error in TeamMemberController. Errormessage: {}", e.getMessage());
+        LOG.error("There was an error in TeamMemberController. Cause: {}. Errormessage: {}", e.getCause(), e.getMessage());
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 }
