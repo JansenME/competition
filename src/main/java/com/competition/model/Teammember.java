@@ -10,7 +10,7 @@ import javax.validation.constraints.NotNull;
 public class Teammember {
     private static final String EMPTY_STRING = "";
 
-    private Long teamMemberId;
+    private Long id;
 
     @NotNull
     private String firstName;
@@ -60,12 +60,12 @@ public class Teammember {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getTeamMemberId() {
-        return teamMemberId;
+    public Long getId() {
+        return id;
     }
 
-    public void setTeamMemberId(Long teamMemberId) {
-        this.teamMemberId = teamMemberId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getFirstName() {

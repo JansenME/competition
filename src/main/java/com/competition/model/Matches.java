@@ -13,7 +13,7 @@ import java.util.List;
 
 @Entity
 public class Matches {
-    private Long matchId;
+    private Long id;
 
     @NotNull
     private List<Team> teams;
@@ -35,12 +35,12 @@ public class Matches {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    public Long getMatchId() {
-        return matchId;
+    public Long getId() {
+        return id;
     }
 
-    public void setMatchId(Long matchId) {
-        this.matchId = matchId;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     @OneToMany(cascade = CascadeType.ALL)

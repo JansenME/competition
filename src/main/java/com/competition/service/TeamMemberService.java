@@ -5,11 +5,13 @@ import com.competition.repository.TeamMemberRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class TeamMemberService {
     private static final Logger LOG = LoggerFactory.getLogger(TeamMemberService.class);
 
@@ -26,6 +28,10 @@ public class TeamMemberService {
 
     public Teammember getOneTeamMember(Long teamMemberId) {
         return teamMemberRepository.findOne(teamMemberId);
+    }
+
+    public void saveTeamMember(Teammember teammember) {
+        teamMemberRepository.save(teammember);
     }
 
     public Response handleException(Exception e) {
