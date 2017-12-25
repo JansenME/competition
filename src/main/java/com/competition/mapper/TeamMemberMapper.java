@@ -19,8 +19,6 @@ public class TeamMemberMapper {
     }
 
     public TeamMemberResponse createTeamMemberResponseList(Teammember teamMember) {
-        TeamMemberResponse teamMemberResponse = new TeamMemberResponse(teamMember);
-
-        return teamMemberResponse;
+        return new TeamMemberResponse(teamMember);
     }
 }
