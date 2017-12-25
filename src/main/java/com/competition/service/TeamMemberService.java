@@ -31,7 +31,12 @@ public class TeamMemberService {
     }
 
     public void saveTeamMember(Teammember teammember) {
-        teamMemberRepository.save(teammember);
+        try {
+            teamMemberRepository.save(teammember);
+            LOG.info("Teammember ({}) was saved succesfully.", teammember.fullName());
+        } catch (Exception e) {
+            LOG.error("Teammember ({}) was not saved succesfully. Cause: {}. Errormessage: {}", teammember.fullName(), e.getCause(), e.getMessage());
+        }
     }
 
     public Response handleException(Exception e) {

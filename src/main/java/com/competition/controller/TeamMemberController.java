@@ -5,6 +5,7 @@ import com.competition.model.Teammember;
 import com.competition.response.TeamMemberResponse;
 import com.competition.response.TeamMemberResponseList;
 import com.competition.service.TeamMemberService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,7 +16,8 @@ import java.util.List;
 
 @RestController
 public class TeamMemberController {
-    private TeamMemberService teamMemberService = new TeamMemberService();
+    @Autowired
+    private TeamMemberService teamMemberService;
     private TeamMemberMapper teamMemberMapper = new TeamMemberMapper();
 
     @RequestMapping(value = "/team_member", method = RequestMethod.GET)
