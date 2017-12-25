@@ -2,10 +2,12 @@ package com.competition.response;
 
 import com.competition.model.Team;
 import com.competition.model.Teammember;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class TeamResponse {
     @NotNull
     private String teamname;

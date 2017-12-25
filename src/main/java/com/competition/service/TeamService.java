@@ -7,6 +7,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TeamService {
@@ -16,7 +17,11 @@ public class TeamService {
     private TeamRepository teamRepository;
 
     public List<Team> getTeams() {
-        return teamRepository.findAll();
+        if (teamRepository != null && teamRepository.findAll() != null) {
+            return teamRepository.findAll();
+        } else {
+            return new ArrayList<>();
+        }
     }
 
     public Response handleException(Exception e) {
