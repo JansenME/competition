@@ -35,7 +35,7 @@ public class TeamMemberService {
             teamMemberRepository.save(teammember);
             LOG.info("Teammember ({}) was saved succesfully.", teammember.fullName());
         } catch (Exception e) {
-            LOG.error("Teammember ({}) was not saved succesfully. Cause: {}. Errormessage: {}", teammember.fullName(), e.getCause(), e.getMessage());
+            LOG.error("Teammember ({}) was not saved succesfully. Stacktrace:", teammember.fullName(), e.fillInStackTrace());
         }
     }
 
