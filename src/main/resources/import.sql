@@ -8,3 +8,19 @@ INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_nam
 INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Arjan', null, 'Mulder', '0644787529', null);
 INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Hendrik', 'de', 'Groot', null, null);
 INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Bas', null, 'Bos', null, null);
+
+INSERT INTO `competition`.`team` (`teamname`) VALUES ('Team 1');
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (1, 1);
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (1, 2);
+INSERT INTO `competition`.`team` (`teamname`) VALUES ('Team 2');
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (2, 3);
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (2, 4);
+INSERT INTO `competition`.`team` (`teamname`) VALUES ('Team 3');
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (3, 5);
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (3, 6);
+INSERT INTO `competition`.`team` (`teamname`) VALUES ('Team 4');
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (4, 7);
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (4, 8);
+INSERT INTO `competition`.`team` (`teamname`) VALUES ('Team 5');
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (5, 9);
+INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (5, 10);

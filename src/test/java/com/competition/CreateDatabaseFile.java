@@ -1,5 +1,6 @@
 package com.competition;
 
+import com.competition.model.Team;
 import com.competition.model.Teammember;
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -21,6 +22,8 @@ public class CreateDatabaseFile {
         fw = new FileWriter("A:/competition-rabobank/src/main/resources/import.sql");
 
         writeTeamMembers();
+        fw.write("\n");
+        writeTeams();
 
         fw.close();
     }
@@ -39,6 +42,27 @@ public class CreateDatabaseFile {
 
             fw.write(query);
             LOG.info("Added teammember ({}) to the sql query.", teammember.fullName());
+        }
+    }
+
+    private void writeTeams() throws IOException {
+        List<Team> teams = createTeams();
+
+        int counterTeam = 1;
+        int counterTeamMember = 1;
+
+        for (Team team : teams) {
+            String queryTeam = String.format("INSERT INTO `competition`.`team` (`teamname`) VALUES ('%s');\n", team.getTeamname());
+            String queryTeamMember1 = String.format("INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (%s, %s);\n", counterTeam, counterTeamMember);
+            String queryTeamMember2 = String.format("INSERT INTO `competition`.`team_teammember` (`team_id`, `team_member_id`) VALUES (%s, %s);\n", counterTeam, counterTeamMember+1);
+
+            fw.write(queryTeam);
+            fw.write(queryTeamMember1);
+            fw.write(queryTeamMember2);
+            LOG.info("Added team ({}) to the sql query.", team.getTeamname());
+
+            counterTeam++;
+            counterTeamMember = counterTeamMember + 2;
         }
     }
 
@@ -76,5 +100,27 @@ public class CreateDatabaseFile {
         teammembers.add(teammember10);
 
         return teammembers;
+    }
+
+    private List<Team> createTeams() {
+        List<Team> teams = new ArrayList<>();
+        List<Teammember> teammembers = createTeamMembers();
+
+        Team team1 = new Team("Team 1", teammembers.subList(0,1));
+        teams.add(team1);
+
+        Team team2 = new Team("Team 2", teammembers.subList(2,3));
+        teams.add(team2);
+
+        Team team3 = new Team("Team 3", teammembers.subList(4,5));
+        teams.add(team3);
+
+        Team team4 = new Team("Team 4", teammembers.subList(6,7));
+        teams.add(team4);
+
+        Team team5 = new Team("Team 5", teammembers.subList(8,9));
+        teams.add(team5);
+
+        return teams;
     }
 }
