@@ -27,7 +27,7 @@ public class TeamService {
     }
 
     public Response handleException(Exception e) {
-        LOG.error("There was an error in TeamController. Errormessage: {}", e.getMessage());
+        LOG.error("There was an error in TeamController. Stacktrace:", e.fillInStackTrace());
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
 }
