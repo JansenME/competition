@@ -54,7 +54,7 @@ public class Teammember {
         if (EMPTY_STRING.equals(this.tussenvoegsel)) {
             return this.firstName + " " + this.lastName;
         } else {
-            return this.firstName + " " + this.tussenvoegsel + " " + this.lastName;
+            return this.firstName + " " + this.tussenvoegsel.toLowerCase() + " " + this.lastName;
         }
     }
 

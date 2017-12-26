@@ -1,0 +1,10 @@
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Henk', null, 'Verhoek', '0623164578', 'henk.verhoek@henkie.nl');
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Klaas', 'de', 'Jong', '0656887419', null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Kees', 'de', 'Vries', null, null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Jaap', null, 'Bakker', '0655896963', null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Jan', null, 'Visser', null, 'jantje@jantjevisser.nl');
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Gerrie', null, 'Smit', null, null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Jasper', 'van de', 'Berg', null, 'jasper@berg.nl');
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Arjan', null, 'Mulder', '0644787529', null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Hendrik', 'de', 'Groot', null, null);
+INSERT INTO `competition`.`teammember` (`first_name`, `tussenvoegsel`, `last_name`, `phone_number`, `email`) VALUES ('Bas', null, 'Bos', null, null);
