@@ -20,7 +20,7 @@ public class TeamMemberController {
     private TeamMemberService teamMemberService;
     private TeamMemberMapper teamMemberMapper = new TeamMemberMapper();
 
-    @RequestMapping(value = "/team_member", method = RequestMethod.GET)
+    @RequestMapping(value = "/team_members", method = RequestMethod.GET)
     public Response getTeamMembers() {
         try {
             List<Teammember> teamMembers = teamMemberService.getAllTeamMembers();
@@ -36,7 +36,7 @@ public class TeamMemberController {
     }
 
     @RequestMapping(value = "/team_member/{teamMemberId}", method = RequestMethod.GET)
-    public Response getTeamMembers(@PathVariable Long teamMemberId) {
+    public Response getTeamMember(@PathVariable Long teamMemberId) {
         try {
             Teammember teammember = teamMemberService.getOneTeamMember(teamMemberId);
 

@@ -16,4 +16,8 @@ public class TeamMapper {
         }
         return teamResponses;
     }
+
+    public TeamResponse createTeamResponseList(Team team) {
+        return new TeamResponse(team);
+    }
 }

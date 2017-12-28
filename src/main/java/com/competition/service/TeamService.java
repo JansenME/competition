@@ -30,4 +30,8 @@ public class TeamService {
         LOG.error("There was an error in TeamController. Stacktrace:", e.fillInStackTrace());
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
+
+    public Team getOneTeam(Long teamId) {
+        return teamRepository.findOne(teamId);
+    }
 }

@@ -6,6 +6,7 @@ import com.competition.response.TeamResponse;
 import com.competition.response.TeamResponseList;
 import com.competition.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,6 +32,19 @@ public class TeamController {
             return Response.ok(teamResponse).build();
         } catch (Exception e) {
            return teamService.handleException(e);
+        }
+    }
+
+    @RequestMapping(value = "/team/{teamId}", method = RequestMethod.GET)
+    public Response getTeam(@PathVariable Long teamId) {
+        try {
+            Team team = teamService.getOneTeam(teamId);
+
+            TeamResponse teamResponse = teamMapper.createTeamResponseList(team);
+
+            return Response.ok(teamResponse).build();
+        } catch (Exception e) {
+            return teamService.handleException(e);
         }
     }
 }
