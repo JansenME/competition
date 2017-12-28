@@ -26,11 +26,6 @@ public class MatchService {
         }
     }
 
-    public Response handleException(Exception e) {
-        LOG.error("There was an error in MatchController. Stacktrace:", e.fillInStackTrace());
-        return Response.status(Response.Status.BAD_REQUEST).build();
-    }
-
     public Matches getOneMatch(Long matchId) {
         return matchRepository.findOne(matchId);
     }
@@ -46,5 +41,10 @@ public class MatchService {
         }
 
         return matchesFromTeam;
+    }
+
+    public Response handleException(Exception e) {
+        LOG.error("There was an error in MatchController. Stacktrace:", e.fillInStackTrace());
+        return Response.status(Response.Status.BAD_REQUEST).build();
     }
 }
