@@ -34,4 +34,17 @@ public class MatchService {
     public Matches getOneMatch(Long matchId) {
         return matchRepository.findOne(matchId);
     }
+
+    public List<Matches> getMatchesFromTeam(Long teamId) {
+        List<Matches> allMatches = getMatches();
+        List<Matches> matchesFromTeam = new ArrayList<>();
+
+        for (Matches match : allMatches) {
+            if (match.getTeams().get(0).getId().equals(teamId) || match.getTeams().get(1).getId().equals(teamId)) {
+                matchesFromTeam.add(match);
+            }
+        }
+
+        return matchesFromTeam;
+    }
 }

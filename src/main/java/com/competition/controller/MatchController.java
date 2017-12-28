@@ -47,4 +47,19 @@ public class MatchController {
             return matchService.handleException(e);
         }
     }
+
+    @RequestMapping(value = "/matches/team/{teamId}", method = RequestMethod.GET)
+    public Response getMatchesFromTeam(@PathVariable Long teamId) {
+        try {
+            List<Matches> matchesFromTeam = matchService.getMatchesFromTeam(teamId);
+
+            List<MatchResponse> matchResponses = matchMapper.createMatchResponseList(matchesFromTeam);
+
+            MatchResponseList matchResponse = new MatchResponseList(matchResponses);
+
+            return Response.ok(matchResponse).build();
+        } catch (Exception e) {
+            return matchService.handleException(e);
+        }
+    }
 }
