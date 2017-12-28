@@ -11,11 +11,14 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TeamResponse {
     @NotNull
+    private Long id;
+    @NotNull
     private String teamname;
     @NotNull
     private List<TeamMemberResponse> teamMembers;
 
     public TeamResponse(Team team) {
+        this.id = team.getId();
         this.teamname = team.getTeamname();
 
         List<TeamMemberResponse> teamMemberResponses = new ArrayList<>();
@@ -25,6 +28,14 @@ public class TeamResponse {
         }
 
         this.teamMembers = teamMemberResponses;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTeamname() {

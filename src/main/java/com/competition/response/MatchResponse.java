@@ -1,29 +1,26 @@
 package com.competition.response;
 
 import com.competition.model.Matches;
-import com.competition.model.Team;
 import com.fasterxml.jackson.annotation.JsonInclude;
 
 import javax.validation.constraints.NotNull;
-import java.util.ArrayList;
-import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MatchResponse {
     @NotNull
-    private List<TeamResponse> teams;
+    private Long id;
+    @NotNull
+    private String homeTeam;
+    @NotNull
+    private String awayTeam;
 
     private Long homeGoals;
     private Long awayGoals;
 
     public MatchResponse(Matches match) {
-        List<TeamResponse> teamResponses = new ArrayList<>();
-
-        for (Team team : match.getTeams()) {
-            teamResponses.add(new TeamResponse(team));
-        }
-
-        this.teams = teamResponses;
+        this.id = match.getId();
+        this.homeTeam = match.getTeams().get(0).getTeamname();
+        this.awayTeam = match.getTeams().get(1).getTeamname();
     }
 
     public void setGoals(Matches match, Long homeGoals, Long awayGoals) {
@@ -31,12 +28,28 @@ public class MatchResponse {
         match.setAwayGoals(awayGoals);
     }
 
-    public List<TeamResponse> getTeams() {
-        return teams;
+    public Long getId() {
+        return id;
     }
 
-    public void setTeams(List<TeamResponse> teams) {
-        this.teams = teams;
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getHomeTeam() {
+        return homeTeam;
+    }
+
+    public void setHomeTeam(String homeTeam) {
+        this.homeTeam = homeTeam;
+    }
+
+    public String getAwayTeam() {
+        return awayTeam;
+    }
+
+    public void setAwayTeam(String awayTeam) {
+        this.awayTeam = awayTeam;
     }
 
     public Long getHomeGoals() {

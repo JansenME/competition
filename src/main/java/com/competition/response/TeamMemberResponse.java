@@ -8,16 +8,26 @@ import javax.validation.constraints.NotNull;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class TeamMemberResponse {
     @NotNull
+    private Long id;
+    @NotNull
     private String name;
 
     private String phoneNumber;
     private String email;
 
     public TeamMemberResponse(Teammember teammember) {
-        String name = teammember.fullName();
-        this.name = name;
+        this.id = teammember.getId();
+        this.name = teammember.fullName();
         this.phoneNumber = teammember.getPhoneNumber();
         this.email = teammember.getEmail();
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
