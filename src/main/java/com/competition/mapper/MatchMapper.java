@@ -16,4 +16,8 @@ public class MatchMapper {
         }
         return matchResponses;
     }
+
+    public MatchResponse createMatchResponseList(Matches match) {
+        return new MatchResponse(match);
+    }
 }

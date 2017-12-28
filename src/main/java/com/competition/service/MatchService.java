@@ -30,4 +30,8 @@ public class MatchService {
         LOG.error("There was an error in MatchController. Stacktrace:", e.fillInStackTrace());
         return Response.status(Response.Status.BAD_REQUEST).build();
     }
+
+    public Matches getOneMatch(Long matchId) {
+        return matchRepository.findOne(matchId);
+    }
 }

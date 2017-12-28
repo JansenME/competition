@@ -6,6 +6,7 @@ import com.competition.response.MatchResponse;
 import com.competition.response.MatchResponseList;
 import com.competition.service.MatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,6 +28,19 @@ public class MatchController {
             List<MatchResponse> matchResponses = matchMapper.createMatchResponseList(matches);
 
             MatchResponseList matchResponse = new MatchResponseList(matchResponses);
+
+            return Response.ok(matchResponse).build();
+        } catch (Exception e) {
+            return matchService.handleException(e);
+        }
+    }
+
+    @RequestMapping(value = "/match/{matchId}", method = RequestMethod.GET)
+    public Response getMatch(@PathVariable Long matchId) {
+        try {
+            Matches match = matchService.getOneMatch(matchId);
+
+            MatchResponse matchResponse = matchMapper.createMatchResponseList(match);
 
             return Response.ok(matchResponse).build();
         } catch (Exception e) {
