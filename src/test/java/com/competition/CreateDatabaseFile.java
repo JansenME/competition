@@ -98,35 +98,23 @@ public class CreateDatabaseFile {
     private List<Teammember> createTeamMembers() {
         List<Teammember> teammembers = new ArrayList<>();
 
-        Teammember teammember1 = new Teammember("Henk", null, "Verhoek", "0623164578", "henk.verhoek@henkie.nl");
-        teammembers.add(teammember1);
+        Teammember lucBosch = new Teammember("Luc", null, "Bosch", null, null);
+        teammembers.add(lucBosch);
 
-        Teammember teammember2 = new Teammember("Klaas", "de", "Jong", "0656887419", null);
-        teammembers.add(teammember2);
+        Teammember ahmetErsahin = new Teammember("Ahmet", null, "Ersahin", null, null);
+        teammembers.add(ahmetErsahin);
 
-        Teammember teammember3 = new Teammember("Kees", "de", "Vries", null, null);
-        teammembers.add(teammember3);
+        Teammember gaicoStoltenborgh = new Teammember("Gaico", null, "Stoltenborgh", null, null);
+        teammembers.add(gaicoStoltenborgh);
 
-        Teammember teammember4 = new Teammember("Jaap", null, "Bakker", "0655896963", null);
-        teammembers.add(teammember4);
+        Teammember satishBihari = new Teammember("Satish", null, "Biharie", null, null);
+        teammembers.add(satishBihari);
 
-        Teammember teammember5 = new Teammember("Jan", null, "Visser", null, "jantje@jantjevisser.nl");
-        teammembers.add(teammember5);
+        Teammember bastiaanKarelse = new Teammember("Bastiaan", null, "Karelse", null, null);
+        teammembers.add(bastiaanKarelse);
 
-        Teammember teammember6 = new Teammember("Gerrie", null, "Smit", null, null);
-        teammembers.add(teammember6);
-
-        Teammember teammember7 = new Teammember("Jasper", "van de", "Berg", null, "jasper@berg.nl");
-        teammembers.add(teammember7);
-
-        Teammember teammember8 = new Teammember("Arjan", null, "Mulder", "0644787529", null);
-        teammembers.add(teammember8);
-
-        Teammember teammember9 = new Teammember("Hendrik", "de", "Groot", null, null);
-        teammembers.add(teammember9);
-
-        Teammember teammember10 = new Teammember("Bas", null, "Bos", null, null);
-        teammembers.add(teammember10);
+        Teammember wiebeHoekstra = new Teammember("Wiebe", null, "Hoekstra", null, null);
+        teammembers.add(wiebeHoekstra);
 
         return teammembers;
     }
@@ -135,25 +123,17 @@ public class CreateDatabaseFile {
         List<Team> teams = new ArrayList<>();
         List<Teammember> teammembers = createTeamMembers();
 
-        Team team1 = new Team("Team 1", teammembers.subList(0,1));
-        mapWithTeamIds.put(team1.getTeamname(), 1L);
-        teams.add(team1);
+        Team siebelGiants = new Team("Siebel Giants", teammembers.subList(0,1));
+        mapWithTeamIds.put(siebelGiants.getTeamname(), 1L);
+        teams.add(siebelGiants);
 
-        Team team2 = new Team("Team 2", teammembers.subList(2,3));
-        mapWithTeamIds.put(team2.getTeamname(), 2L);
-        teams.add(team2);
+        Team muppets1 = new Team("Muppets 1", teammembers.subList(2,3));
+        mapWithTeamIds.put(muppets1.getTeamname(), 2L);
+        teams.add(muppets1);
 
-        Team team3 = new Team("Team 3", teammembers.subList(4,5));
-        mapWithTeamIds.put(team3.getTeamname(), 3L);
-        teams.add(team3);
-
-        Team team4 = new Team("Team 4", teammembers.subList(6,7));
-        mapWithTeamIds.put(team4.getTeamname(), 4L);
-        teams.add(team4);
-
-        Team team5 = new Team("Team 5", teammembers.subList(8,9));
-        mapWithTeamIds.put(team5.getTeamname(), 5L);
-        teams.add(team5);
+        Team digitalMasters = new Team("Digital Masters", teammembers.subList(4,5));
+        mapWithTeamIds.put(digitalMasters.getTeamname(), 3L);
+        teams.add(digitalMasters);
 
         return teams;
     }
