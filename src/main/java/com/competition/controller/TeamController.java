@@ -21,7 +21,7 @@ public class TeamController {
     private TeamMapper teamMapper = new TeamMapper();
 
     @RequestMapping(value = "/teams", method = RequestMethod.GET)
-    public ResponseEntity<?> getTeams() {
+    public ResponseEntity getTeams() {
         try {
             List<Team> teams = teamService.getTeams();
 
@@ -36,7 +36,7 @@ public class TeamController {
     }
 
     @RequestMapping(value = "/team/{teamId}", method = RequestMethod.GET)
-    public ResponseEntity<?> getTeam(@PathVariable Long teamId) {
+    public ResponseEntity getTeam(@PathVariable Long teamId) {
         try {
             Team team = teamService.getOneTeam(teamId);
 

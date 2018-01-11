@@ -9,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.core.Response;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class TeamMemberService {
         }
     }
 
-    public ResponseEntity<?> handleException(Exception e) {
+    public ResponseEntity handleException(Exception e) {
         LOG.error("There was an error in TeamMemberController. Stacktrace:", e.fillInStackTrace());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }

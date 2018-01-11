@@ -27,7 +27,7 @@ public class TeamService {
         }
     }
 
-    public ResponseEntity<?> handleException(Exception e) {
+    public ResponseEntity handleException(Exception e) {
         LOG.error("There was an error in TeamController. Stacktrace:", e.fillInStackTrace());
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }

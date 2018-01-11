@@ -21,7 +21,7 @@ public class MatchController {
     private MatchMapper matchMapper = new MatchMapper();
 
     @RequestMapping(value = "/matches", method = RequestMethod.GET)
-    public ResponseEntity<?> getMatches() {
+    public ResponseEntity getMatches() {
         try {
             List<Matches> matches = matchService.getMatches();
 
@@ -36,7 +36,7 @@ public class MatchController {
     }
 
     @RequestMapping(value = "/match/{matchId}", method = RequestMethod.GET)
-    public ResponseEntity<?> getMatch(@PathVariable Long matchId) {
+    public ResponseEntity getMatch(@PathVariable Long matchId) {
         try {
             Matches match = matchService.getOneMatch(matchId);
 
@@ -49,7 +49,7 @@ public class MatchController {
     }
 
     @RequestMapping(value = "/matches/team/{teamId}", method = RequestMethod.GET)
-    public ResponseEntity<?> getMatchesFromTeam(@PathVariable Long teamId) {
+    public ResponseEntity getMatchesFromTeam(@PathVariable Long teamId) {
         try {
             List<Matches> matchesFromTeam = matchService.getMatchesFromTeam(teamId);
 
