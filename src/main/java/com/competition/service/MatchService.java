@@ -1,13 +1,16 @@
 package com.competition.service;
 
 import com.competition.model.Matches;
+import com.competition.model.Team;
 import com.competition.repository.MatchRepository;
+import com.competition.repository.TeamRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.ws.rs.core.Response;
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,16 +21,42 @@ public class MatchService {
     @Autowired
     private MatchRepository matchRepository;
 
+    @Autowired
+    private TeamRepository teamRepository;
+
     public List<Matches> getMatches() {
         if (matchRepository != null && matchRepository.findAll() != null) {
-            return matchRepository.findAll();
+            List<Matches> matches = matchRepository.findAll();
+
+            for (Matches match : matches) {
+                List<BigInteger> teamIds = matchRepository.findTeamsByMatchId(match.getId());
+                List<Team> teams = new ArrayList<>();
+
+                for (BigInteger team : teamIds) {
+                    teams.add(teamRepository.findOne(Long.parseLong(team.toString())));
+                }
+
+                match.setTeams(teams);
+            }
+
+
+            return matches;
         } else {
             return new ArrayList<>();
         }
     }
 
     public Matches getOneMatch(Long matchId) {
-        return matchRepository.findOne(matchId);
+        List<BigInteger> teamIds = matchRepository.findTeamsByMatchId(matchId);
+        List<Team> teams = new ArrayList<>();
+
+        for (BigInteger teamId : teamIds) {
+            teams.add(teamRepository.findOne(Long.parseLong(teamId.toString())));
+        }
+
+        Matches match = matchRepository.findOne(matchId);
+        match.setTeams(teams);
+        return match;
     }
 
     public List<Matches> getMatchesFromTeam(Long teamId) {
