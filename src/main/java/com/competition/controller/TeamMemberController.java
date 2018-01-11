@@ -6,12 +6,12 @@ import com.competition.response.TeamMemberResponse;
 import com.competition.response.TeamMemberResponseList;
 import com.competition.service.TeamMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.ws.rs.core.Response;
 import java.util.List;
 
 @RestController
@@ -21,7 +21,7 @@ public class TeamMemberController {
     private TeamMemberMapper teamMemberMapper = new TeamMemberMapper();
 
     @RequestMapping(value = "/team_members", method = RequestMethod.GET)
-    public Response getTeamMembers() {
+    public ResponseEntity<?> getTeamMembers() {
         try {
             List<Teammember> teamMembers = teamMemberService.getAllTeamMembers();
 
@@ -29,20 +29,20 @@ public class TeamMemberController {
 
             TeamMemberResponseList teamMemberResponseList = new TeamMemberResponseList(teamMemberResponses);
 
-            return Response.ok(teamMemberResponseList).build();
+            return ResponseEntity.ok(teamMemberResponseList);
         } catch (Exception e) {
             return teamMemberService.handleException(e);
         }
     }
 
     @RequestMapping(value = "/team_member/{teamMemberId}", method = RequestMethod.GET)
-    public Response getTeamMember(@PathVariable Long teamMemberId) {
+    public ResponseEntity<?> getTeamMember(@PathVariable Long teamMemberId) {
         try {
             Teammember teammember = teamMemberService.getOneTeamMember(teamMemberId);
 
             TeamMemberResponse teamMemberResponse = teamMemberMapper.createTeamMemberResponseList(teammember);
 
-            return Response.ok(teamMemberResponse).build();
+            return ResponseEntity.ok(teamMemberResponse);
         } catch (Exception e) {
             return teamMemberService.handleException(e);
         }

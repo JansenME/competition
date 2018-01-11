@@ -7,9 +7,10 @@ import com.competition.repository.TeamRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import javax.ws.rs.core.Response;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
@@ -72,8 +73,8 @@ public class MatchService {
         return matchesFromTeam;
     }
 
-    public Response handleException(Exception e) {
+    public ResponseEntity<?> handleException(Exception e) {
         LOG.error("There was an error in MatchController. Stacktrace:", e.fillInStackTrace());
-        return Response.status(Response.Status.BAD_REQUEST).build();
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
     }
 }
