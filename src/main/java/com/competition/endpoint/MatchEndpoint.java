@@ -1,4 +1,4 @@
-package com.competition.controller;
+package com.competition.endpoint;
 
 import com.competition.mapper.MatchMapper;
 import com.competition.model.Matches;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class MatchController {
+public class MatchEndpoint {
     @Autowired
     private MatchService matchService = new MatchService();
     private MatchMapper matchMapper = new MatchMapper();
