@@ -21,6 +21,11 @@ public class MatchResponse {
         this.id = match.getId();
         this.homeTeam = match.getTeams().get(0).getTeamname();
         this.awayTeam = match.getTeams().get(1).getTeamname();
+
+        if (match.getAwayGoals() != null && match.getHomeGoals() != null) {
+            this.homeGoals = match.getHomeGoals();
+            this.awayGoals = match.getAwayGoals();
+        }
     }
 
     public void setGoals(Matches match, Long homeGoals, Long awayGoals) {

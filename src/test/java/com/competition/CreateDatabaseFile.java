@@ -116,6 +116,96 @@ public class CreateDatabaseFile {
         Teammember wiebeHoekstra = new Teammember("Wiebe", null, "Hoekstra", null, null);
         teammembers.add(wiebeHoekstra);
 
+        Teammember ronaldMathies = new Teammember("Ronald", null, "Mathies", null, null);
+        teammembers.add(ronaldMathies);
+
+        Teammember ramonDeBeijer = new Teammember("Ramon", "de", "Beijer", null, null);
+        teammembers.add(ramonDeBeijer);
+
+        Teammember edwinCox = new Teammember("Edwin", null, "Cox", null, null);
+        teammembers.add(edwinCox);
+
+        Teammember kenanArslan = new Teammember("Kenan", null,"Arslan", null, null);
+        teammembers.add(kenanArslan);
+
+        Teammember robbertMackelenbergh = new Teammember("Robbert", null,"Mackelenbergh", null, null);
+        teammembers.add(robbertMackelenbergh);
+
+        Teammember zoranDjukic = new Teammember("Zoran", null,"Djukic", null, null);
+        teammembers.add(zoranDjukic);
+
+        Teammember basStoker = new Teammember("Bas", null,"Stoker", null, null);
+        teammembers.add(basStoker);
+
+        Teammember oussamaChougna = new Teammember("Oussama", null,"Chougna", null, null);
+        teammembers.add(oussamaChougna);
+
+        Teammember waiHo = new Teammember("Wai", null,"Ho", null, null);
+        teammembers.add(waiHo);
+
+        Teammember michaelWong = new Teammember("Michael", null,"Wong", null, null);
+        teammembers.add(michaelWong);
+
+        Teammember danielleAlmeida = new Teammember("Danielle", null,"Almeida", null, null);
+        teammembers.add(danielleAlmeida);
+
+        Teammember keesVanDenBerg = new Teammember("Kees", "van den","Berg", null, null);
+        teammembers.add(keesVanDenBerg);
+
+        Teammember geoffreyTas = new Teammember("Geoffrey", null,"Tas", null, null);
+        teammembers.add(geoffreyTas);
+
+        Teammember ciriloWortel = new Teammember("Cirilo", null,"Wortel", null, null);
+        teammembers.add(ciriloWortel);
+
+        Teammember arieVanDerLee = new Teammember("Arie", "van der","Lee", null, null);
+        teammembers.add(arieVanDerLee);
+
+        Teammember richardDeuzeman = new Teammember("Richard", null,"Deuzeman", null, null);
+        teammembers.add(richardDeuzeman);
+
+        Teammember arnoKoehler = new Teammember("Arno", null,"Koehler", null, null);
+        teammembers.add(arnoKoehler);
+
+        Teammember loekHeijmans = new Teammember("Loek", null,"Heijmans", null, null);
+        teammembers.add(loekHeijmans);
+
+        Teammember johannesTimmerman = new Teammember("Johannes", null,"Timmerman", null, null);
+        teammembers.add(johannesTimmerman);
+
+        Teammember adamSmiechura = new Teammember("Adam", null,"Smiechura", null, null);
+        teammembers.add(adamSmiechura);
+
+        Teammember timPrijn = new Teammember("Tim", null,"Prijn", null, null);
+        teammembers.add(timPrijn);
+
+        Teammember patrickVanLeuveren = new Teammember("Patrick", "van","Leuveren", null, null);
+        teammembers.add(patrickVanLeuveren);
+
+        Teammember ronaldBroeks = new Teammember("Ronald", null,"Broeks", null, null);
+        teammembers.add(ronaldBroeks);
+
+        Teammember jeroenKops = new Teammember("Jeroen", null,"Kops", null, null);
+        teammembers.add(jeroenKops);
+
+        Teammember davidBaak = new Teammember("David", null,"Baak", null, null);
+        teammembers.add(davidBaak);
+
+        Teammember remcoRunge = new Teammember("Remco", null,"Runge", null, null);
+        teammembers.add(remcoRunge);
+
+        Teammember martijnJansen = new Teammember("Martijn", null,"Jansen", null, null);
+        teammembers.add(martijnJansen);
+
+        Teammember danielPerezPerez = new Teammember("Daniel", null,"Perez Perez", null, null);
+        teammembers.add(danielPerezPerez);
+
+        Teammember aldoStein = new Teammember("Aldo", null,"Stein", null, null);
+        teammembers.add(aldoStein);
+
+        Teammember edwardVanDerWielen = new Teammember("Edward", "van der","Wielen", null, null);
+        teammembers.add(edwardVanDerWielen);
+
         return teammembers;
     }
 
@@ -134,6 +224,66 @@ public class CreateDatabaseFile {
         Team digitalMasters = new Team("Digital Masters", teammembers.subList(4,5));
         mapWithTeamIds.put(digitalMasters.getTeamname(), 3L);
         teams.add(digitalMasters);
+
+        Team happyTreeFriends = new Team("Happy Tree Friends", teammembers.subList(6,7));
+        mapWithTeamIds.put(happyTreeFriends.getTeamname(), 4L);
+        teams.add(happyTreeFriends);
+
+        Team muppets2 = new Team("Muppets 2", teammembers.subList(8,9));
+        mapWithTeamIds.put(muppets2.getTeamname(), 5L);
+        teams.add(muppets2);
+
+        Team thunderbirds = new Team("Thunderbirds", teammembers.subList(10,11));
+        mapWithTeamIds.put(thunderbirds.getTeamname(), 6L);
+        teams.add(thunderbirds);
+
+        Team teamBas = new Team("Team Bas", teammembers.subList(12,13));
+        mapWithTeamIds.put(teamBas.getTeamname(), 7L);
+        teams.add(teamBas);
+
+        Team manchesterShitty = new Team("Manchester Shitty", teammembers.subList(14,15));
+        mapWithTeamIds.put(manchesterShitty.getTeamname(), 8L);
+        teams.add(manchesterShitty);
+
+        Team hypolab = new Team("Hypolab", teammembers.subList(16,17));
+        mapWithTeamIds.put(hypolab.getTeamname(), 9L);
+        teams.add(hypolab);
+
+        Team x_men = new Team("X-Men", teammembers.subList(18,19));
+        mapWithTeamIds.put(x_men.getTeamname(), 10L);
+        teams.add(x_men);
+
+        Team theBigBangTheory = new Team("The Big Bang Theory", teammembers.subList(20,21));
+        mapWithTeamIds.put(theBigBangTheory.getTeamname(), 11L);
+        teams.add(theBigBangTheory);
+
+        Team muppets3 = new Team("Muppets 3", teammembers.subList(22,23));
+        mapWithTeamIds.put(muppets3.getTeamname(), 12L);
+        teams.add(muppets3);
+
+        Team teamJohannes = new Team("Team Johannes", teammembers.subList(24,25));
+        mapWithTeamIds.put(teamJohannes.getTeamname(), 13L);
+        teams.add(teamJohannes);
+
+        Team reservoirDogs = new Team("Reservoir Dogs", teammembers.subList(26,27));
+        mapWithTeamIds.put(reservoirDogs.getTeamname(), 14L);
+        teams.add(reservoirDogs);
+
+        Team muppets4 = new Team("Muppets 4", teammembers.subList(28,29));
+        mapWithTeamIds.put(muppets4.getTeamname(), 15L);
+        teams.add(muppets4);
+
+        Team statlerAndWaldorf = new Team("Statler and Waldorf", teammembers.subList(30,31));
+        mapWithTeamIds.put(statlerAndWaldorf.getTeamname(), 16L);
+        teams.add(statlerAndWaldorf);
+
+        Team teamInkpot = new Team("Team Inkpot", teammembers.subList(32,33));
+        mapWithTeamIds.put(teamInkpot.getTeamname(), 17L);
+        teams.add(teamInkpot);
+
+        Team tvtDoorgedraaid = new Team("TVT Doorgedraaid", teammembers.subList(34,35));
+        mapWithTeamIds.put(tvtDoorgedraaid.getTeamname(), 18L);
+        teams.add(tvtDoorgedraaid);
 
         return teams;
     }
