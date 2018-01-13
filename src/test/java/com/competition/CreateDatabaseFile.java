@@ -30,6 +30,8 @@ public class CreateDatabaseFile {
         writeTeams();
         fw.write("\n");
         writeMatches();
+        fw.write("\n");
+        writeScores();
 
         fw.close();
     }
@@ -95,6 +97,9 @@ public class CreateDatabaseFile {
         }
     }
 
+    private void writeScores() throws IOException {
+    }
+
     private List<Teammember> createTeamMembers() {
         List<Teammember> teammembers = new ArrayList<>();
 
@@ -107,8 +112,8 @@ public class CreateDatabaseFile {
         Teammember gaicoStoltenborgh = new Teammember("Gaico", null, "Stoltenborgh", null, null);
         teammembers.add(gaicoStoltenborgh);
 
-        Teammember satishBihari = new Teammember("Satish", null, "Biharie", null, null);
-        teammembers.add(satishBihari);
+        Teammember satishBiharie = new Teammember("Satish", null, "Biharie", null, null);
+        teammembers.add(satishBiharie);
 
         Teammember bastiaanKarelse = new Teammember("Bastiaan", null, "Karelse", null, null);
         teammembers.add(bastiaanKarelse);
