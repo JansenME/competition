@@ -98,6 +98,56 @@ public class CreateDatabaseFile {
     }
 
     private void writeScores() throws IOException {
+        Map<Long, String[]> scores = createScores();
+
+        for (Map.Entry<Long, String[]> score : scores.entrySet()) {
+
+            String homeGoals = score.getValue()[0];
+            String awayGoals = score.getValue()[1];
+
+            String query = String.format("UPDATE `competition`.`matches` SET `away_goals`='%s', `home_goals`='%s' WHERE  `id`=%s;\n", awayGoals, homeGoals, score.getKey());
+
+            fw.write(query);
+        }
+    }
+
+    private Map<Long, String[]> createScores() {
+        Map<Long, String[]> scores = new HashMap<>();
+
+        scores.put(1L, new String[] {"7","10"});
+        scores.put(7L, new String[] {"10","8"});
+        scores.put(16L, new String[] {"8","10"});
+        scores.put(17L, new String[] {"10","3"});
+        scores.put(18L, new String[] {"10","9"});
+        scores.put(29L, new String[] {"10","1"});
+        scores.put(33L, new String[] {"8","10"});
+        scores.put(55L, new String[] {"10","9"});
+        scores.put(62L, new String[] {"10","4"});
+        scores.put(67L, new String[] {"7","10"});
+        scores.put(72L, new String[] {"8","10"});
+        scores.put(101L, new String[] {"9","10"});
+        scores.put(121L, new String[] {"10","6"});
+        scores.put(136L, new String[] {"10","3"});
+        scores.put(141L, new String[] {"6","10"});
+        scores.put(147L, new String[] {"6","10"});
+        scores.put(191L, new String[] {"6","10"});
+        scores.put(196L, new String[] {"10","8"});
+        scores.put(203L, new String[] {"3","10"});
+        scores.put(220L, new String[] {"2","10"});
+        scores.put(221L, new String[] {"2","10"});
+        scores.put(273L, new String[] {"10","5"});
+        scores.put(275L, new String[] {"10","1"});
+        scores.put(276L, new String[] {"10","1"});
+        scores.put(278L, new String[] {"10","4"});
+        scores.put(284L, new String[] {"10","2"});
+        scores.put(285L, new String[] {"10","3"});
+        scores.put(289L, new String[] {"10","2"});
+        scores.put(290L, new String[] {"4","10"});
+        scores.put(297L, new String[] {"3","10"});
+        scores.put(302L, new String[] {"8","10"});
+        scores.put(306L, new String[] {"5","10"});
+
+        return scores;
     }
 
     private List<Teammember> createTeamMembers() {
