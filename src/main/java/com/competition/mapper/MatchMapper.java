@@ -2,10 +2,12 @@ package com.competition.mapper;
 
 import com.competition.model.Matches;
 import com.competition.response.MatchResponse;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class MatchMapper {
     public List<MatchResponse> createMatchResponseList(List<Matches> matches) {
         List<MatchResponse> matchResponses = new ArrayList<>();

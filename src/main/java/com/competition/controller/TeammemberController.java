@@ -1,4 +1,4 @@
-package com.competition.endpoint;
+package com.competition.controller;
 
 import com.competition.mapper.TeamMemberMapper;
 import com.competition.model.Teammember;
@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class TeamMemberEndpoint {
+public class TeammemberController {
     @Autowired
     private TeamMemberService teamMemberService;
     private TeamMemberMapper teamMemberMapper = new TeamMemberMapper();
