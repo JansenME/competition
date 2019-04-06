@@ -1,12 +1,13 @@
 package com.competition.controller;
 
-import com.competition.mapper.TeamMemberMapper;
+import com.competition.mapper.TeammemberMapper;
 import com.competition.model.Teammember;
 import com.competition.response.TeamMemberResponse;
 import com.competition.response.TeamMemberResponseList;
 import com.competition.service.TeamMemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +17,16 @@ import java.util.List;
 
 @RestController
 public class TeammemberController {
-    @Autowired
-    private TeamMemberService teamMemberService;
-    private TeamMemberMapper teamMemberMapper = new TeamMemberMapper();
+    private final TeamMemberService teamMemberService;
+    private final TeammemberMapper teamMemberMapper;
 
-    @RequestMapping(value = "/team_members", method = RequestMethod.GET)
+    @Autowired
+    public TeammemberController(TeamMemberService teamMemberService, TeammemberMapper teammemberMapper) {
+        this.teamMemberService = teamMemberService;
+        this.teamMemberMapper = teammemberMapper;
+    }
+
+    @GetMapping("/team_members")
     public ResponseEntity getTeamMembers() {
         try {
             List<Teammember> teamMembers = teamMemberService.getAllTeamMembers();
@@ -35,7 +41,7 @@ public class TeammemberController {
         }
     }
 
-    @RequestMapping(value = "/team_member/{teamMemberId}", method = RequestMethod.GET)
+    @GetMapping("/team_member/{teamMemberId}")
     public ResponseEntity getTeamMember(@PathVariable Long teamMemberId) {
         try {
             Teammember teammember = teamMemberService.getOneTeamMember(teamMemberId);

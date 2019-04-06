@@ -7,6 +7,7 @@ import com.competition.response.TeamResponseList;
 import com.competition.service.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,11 +17,16 @@ import java.util.List;
 
 @RestController
 public class TeamController {
-    @Autowired
-    private TeamService teamService = new TeamService();
-    private TeamMapper teamMapper = new TeamMapper();
+    private final TeamService teamService;
+    private final TeamMapper teamMapper;
 
-    @RequestMapping(value = "/teams", method = RequestMethod.GET)
+    @Autowired
+    public TeamController(TeamService teamService, TeamMapper teamMapper) {
+        this.teamService = teamService;
+        this.teamMapper = teamMapper;
+    }
+
+    @GetMapping("/teams")
     public ResponseEntity getTeams() {
         try {
             List<Team> teams = teamService.getTeams();
@@ -35,7 +41,7 @@ public class TeamController {
         }
     }
 
-    @RequestMapping(value = "/team/{teamId}", method = RequestMethod.GET)
+    @GetMapping("/team/{teamId}")
     public ResponseEntity getTeam(@PathVariable Long teamId) {
         try {
             Team team = teamService.getOneTeam(teamId);

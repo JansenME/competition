@@ -2,11 +2,13 @@ package com.competition.mapper;
 
 import com.competition.model.Teammember;
 import com.competition.response.TeamMemberResponse;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class TeamMemberMapper {
+@Component
+public class TeammemberMapper {
 
     public List<TeamMemberResponse> createTeamMemberResponseList(List<Teammember> teamMembers) {
         List<TeamMemberResponse> teamMemberResponses = new ArrayList<>();
