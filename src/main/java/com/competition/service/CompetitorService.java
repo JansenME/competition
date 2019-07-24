@@ -1,10 +1,11 @@
 package com.competition.service;
 
-import com.competition.model.Competitor;
+import com.competition.model.entity.Competitor;
 import com.competition.repository.CompetitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -20,15 +21,14 @@ public class CompetitorService {
         return competitorRepository.findAll();
     }
 
-    public Competitor postNewCompetitor(final String firstName, final String lastName, final String phoneNumber, final String email) {
-        Competitor competitor = createNewCompetitor(firstName, lastName, phoneNumber, email);
-
+    public Competitor postNewCompetitor(final Competitor competitor) {
+        competitor.setRoleInCompetitions(new HashMap<>());
         competitorRepository.insert(competitor);
 
         return competitor;
     }
 
-    private Competitor createNewCompetitor(final String firstName, final String lastName, final String phoneNumber, final String email) {
-        return new Competitor(firstName, lastName, phoneNumber, email);
+    public void deleteAll() {
+        competitorRepository.deleteAll();
     }
 }

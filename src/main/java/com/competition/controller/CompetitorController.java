@@ -1,12 +1,14 @@
 package com.competition.controller;
 
+import com.competition.model.entity.Competitor;
 import com.competition.service.CompetitorService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -28,14 +30,16 @@ public class CompetitorController {
     }
 
     @PostMapping("/postNewCompetitor")
-    public ResponseEntity postNewCompetitor(@RequestParam(value = "firstName", required = false) String firstName,
-                                  @RequestParam(value = "lastName", required = false) String lastName,
-                                  @RequestParam(value = "phoneNumber", required = false) String phoneNumber,
-                                  @RequestParam(value = "email", required = false) String email) {
+    public ResponseEntity postNewCompetitor(@RequestBody Competitor competitor) {
         try {
-            return ResponseEntity.ok(competitorService.postNewCompetitor(firstName, lastName, phoneNumber, email));
+            return ResponseEntity.ok(competitorService.postNewCompetitor(competitor));
         } catch(Exception e) {
             return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
         }
+    }
+
+    @DeleteMapping("/deleteAll")
+    public void deleteAllCompetitors() {
+        competitorService.deleteAll();
     }
 }
