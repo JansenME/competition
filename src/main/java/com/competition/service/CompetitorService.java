@@ -1,5 +1,6 @@
 package com.competition.service;
 
+import com.competition.model.Role;
 import com.competition.model.entity.Competitor;
 import com.competition.repository.CompetitorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +22,7 @@ public class CompetitorService {
     }
 
     public Competitor postNewCompetitor(final Competitor competitor) {
+        competitor.setRole(Role.USER);
         competitorRepository.insert(competitor);
 
         return competitor;
