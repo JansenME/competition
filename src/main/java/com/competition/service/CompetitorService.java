@@ -26,7 +26,7 @@ public class CompetitorService {
         return competitor;
     }
 
-    public void deleteAll() {
+    public void deleteAllCompetitors() {
         competitorRepository.deleteAll();
     }
 }
