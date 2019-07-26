@@ -11,5 +11,5 @@ public class JoinCompetitorCompetition {
 
     private final String competitorId;
     private final String competitionId;
-    private final Role role;
+    private Role role;
 }

@@ -1,6 +1,7 @@
 package com.competition.controller;
 
 import com.competition.model.entity.Competition;
+import com.competition.model.entity.JoinCompetitorCompetition;
 import com.competition.service.CompetitionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -35,6 +36,15 @@ public class CompetitionController {
     public ResponseEntity postNewCompetition(@RequestBody Competition competition) {
         try {
             return ResponseEntity.ok(competitionService.postNewCompetition(competition));
+        } catch(Exception e) {
+            return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
+        }
+    }
+
+    @PostMapping("/addCompetitor")
+    public ResponseEntity addCompetitor(@RequestBody JoinCompetitorCompetition joinCompetitorCompetition) {
+        try {
+            return ResponseEntity.ok(competitionService.addCompetitor(joinCompetitorCompetition));
         } catch(Exception e) {
             return ResponseEntity.status(HttpStatus.I_AM_A_TEAPOT).build();
         }
